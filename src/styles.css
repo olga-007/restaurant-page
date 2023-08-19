@@ -54,14 +54,17 @@ body {
 
 .tab {
     flex: 1;
+    cursor: pointer;
     font-size: clamp(18px, 4vw, 1.8rem);
     padding: 20px;
     text-align: center;
+    box-shadow: 3px 0px 3px rgba(150, 150, 150, 0.2);
 }
 
 .active-tab {
+    cursor: auto;
     color: rgb(228, 18, 18);
-    box-shadow: 0 -5px 25px rgba(100, 100, 100, 0.5);
+    box-shadow: 0 0 15px rgba(100, 100, 100, 0.5);
     border-bottom: 2px solid rgb(228, 18, 18);
 }
 
