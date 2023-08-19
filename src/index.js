@@ -1,17 +1,6 @@
 import './styles.css';
 
-function addNewElement(type, parent, ...cssClasses) {
-    const element = document.createElement(type);
-    if (cssClasses) {
-        element.classList.add(...cssClasses);
-    }
-    parent.appendChild(element);
-    return element;
-}
-
-function addNewDiv(parent, ...cssClasses) {
-    return addNewElement('div', parent, ...cssClasses);
-}
+import { addNewDiv } from './helper';
 
 const contentDiv = document.getElementById('content');
 
@@ -20,4 +9,11 @@ const titleDiv = addNewDiv(titleBox, 'title');
 titleDiv.textContent = 'Awesome Restaurant';
 
 const mainBox = addNewDiv(contentDiv, 'box', 'main');
-mainBox.textContent = 'Main content';
+
+const tabs = addNewDiv(mainBox, 'tabs');
+const homeTab = addNewDiv(tabs, 'tab', 'active-tab');
+homeTab.textContent = 'Home';
+const menuTab = addNewDiv(tabs, 'tab');
+menuTab.textContent = 'Menu';
+const contactTab = addNewDiv(tabs, 'tab');
+contactTab.textContent = 'Contact';
