@@ -33,5 +33,5 @@ addTab(tabs, 'homeTab', 'Home');
 addTab(tabs, 'menuTab', 'Menu');
 addTab(tabs, 'contactTab', 'Contact');
 
-// activate Home tab by default
-switchTab('homeTab');
+// activate the first tab by default
+switchTab(document.getElementsByClassName('tab')[0].id);
