@@ -16,4 +16,4 @@ In a regular browser:
 
 In a mobile browser:
 
-<img height="800px" src="./versions/version-narrow.png">
+<img height="700px" src="./versions/version-narrow.png">
