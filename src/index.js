@@ -1,8 +1,10 @@
 import './styles.css';
-
 import { addNewDiv } from './helper';
+import renderHome from './home';
+import renderMenu from './menu';
+import renderContact from './contact';
 
-function switchTab(tabId) {
+function switchTab(tabId = 'homeTab', renderFn = renderHome) {
     const tabElements = document.getElementsByClassName('tab');
     for (let i = 0; i < tabElements.length; i++) {
         const el = tabElements[i];
@@ -11,13 +13,18 @@ function switchTab(tabId) {
             el.classList.add('active-tab');
         }
     }
+    const tabContentEl = document.getElementById('tabContent');
+    while (tabContentEl.firstChild) {
+        tabContentEl.removeChild(tabContentEl.firstChild);
+    }
+    renderFn(tabContentEl);
 }
 
-function addTab(parent, id, title) {
+function addTab(parent, id, title, renderFn) {
     const tab = addNewDiv(parent, 'tab');
     tab.id = id;
     tab.textContent = title;
-    tab.addEventListener('click', () => switchTab(id));
+    tab.addEventListener('click', () => switchTab(id, renderFn));
 }
 
 const contentDiv = document.getElementById('content');
@@ -29,9 +36,11 @@ titleDiv.textContent = 'Awesome Restaurant';
 const mainBox = addNewDiv(contentDiv, 'box', 'main');
 
 const tabs = addNewDiv(mainBox, 'tabs');
-addTab(tabs, 'homeTab', 'Home');
-addTab(tabs, 'menuTab', 'Menu');
-addTab(tabs, 'contactTab', 'Contact');
+addTab(tabs, 'homeTab', 'Home', renderHome);
+addTab(tabs, 'menuTab', 'Menu', renderMenu);
+addTab(tabs, 'contactTab', 'Contact', renderContact);
 
-// activate the first tab by default
-switchTab(document.getElementsByClassName('tab')[0].id);
+const tabContent = addNewDiv(mainBox, 'tab-content');
+tabContent.id = 'tabContent';
+
+switchTab();
