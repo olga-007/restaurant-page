@@ -43,4 +43,7 @@ addTab(tabs, 'contactTab', 'Contact', renderContact);
 const tabContent = addNewDiv(mainBox, 'tab-content');
 tabContent.id = 'tabContent';
 
+const attribution = addNewDiv(contentDiv, 'attribution');
+attribution.innerHTML = 'Photo by <a href="https://unsplash.com/@lvnatikk">Lily Banse</a> on <a href="https://unsplash.com/photos/-YHSwy6uqvk">Unsplash</a>';
+
 switchTab();
