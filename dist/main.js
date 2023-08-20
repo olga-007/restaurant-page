@@ -10,6 +10,56 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/contact.js":
+/*!************************!*\
+  !*** ./src/contact.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ render)\n/* harmony export */ });\n/* harmony import */ var _helper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./helper */ \"./src/helper.js\");\n\nfunction render(parent) {\n  const textDiv = (0,_helper__WEBPACK_IMPORTED_MODULE_0__.addNewDiv)(parent, 'tab-text');\n  textDiv.textContent = 'Contact us at ThisTotallyNotFake@email.com';\n}\n\n//# sourceURL=webpack://restaurant-page/./src/contact.js?");
+
+/***/ }),
+
+/***/ "./src/helper.js":
+/*!***********************!*\
+  !*** ./src/helper.js ***!
+  \***********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   addNewDiv: () => (/* binding */ addNewDiv),\n/* harmony export */   addNewElement: () => (/* binding */ addNewElement)\n/* harmony export */ });\nfunction addNewElement(type, parent) {\n  const element = document.createElement(type);\n  for (var _len = arguments.length, cssClasses = new Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {\n    cssClasses[_key - 2] = arguments[_key];\n  }\n  if (cssClasses) {\n    element.classList.add(...cssClasses);\n  }\n  parent.appendChild(element);\n  return element;\n}\nfunction addNewDiv(parent) {\n  for (var _len2 = arguments.length, cssClasses = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {\n    cssClasses[_key2 - 1] = arguments[_key2];\n  }\n  return addNewElement('div', parent, ...cssClasses);\n}\n\n//# sourceURL=webpack://restaurant-page/./src/helper.js?");
+
+/***/ }),
+
+/***/ "./src/home.js":
+/*!*********************!*\
+  !*** ./src/home.js ***!
+  \*********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ render)\n/* harmony export */ });\n/* harmony import */ var _helper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./helper */ \"./src/helper.js\");\n\nfunction render(parent) {\n  const textDiv = (0,_helper__WEBPACK_IMPORTED_MODULE_0__.addNewDiv)(parent, 'tab-text');\n  textDiv.textContent = 'Welcome to a culinary haven where the art of cooking and the warmth of hospitality merge seamlessly. Nestled in the heart of the city, our restaurant offers a captivating blend of flavors and ambiance that transport you to a world of delectable delights and timeless charm.';\n}\n\n//# sourceURL=webpack://restaurant-page/./src/home.js?");
+
+/***/ }),
+
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles.css */ \"./src/styles.css\");\n/* harmony import */ var _helper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helper */ \"./src/helper.js\");\n/* harmony import */ var _home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./home */ \"./src/home.js\");\n/* harmony import */ var _menu__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./menu */ \"./src/menu.js\");\n/* harmony import */ var _contact__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./contact */ \"./src/contact.js\");\n\n\n\n\n\nfunction switchTab() {\n  let tabId = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'homeTab';\n  let renderFn = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : _home__WEBPACK_IMPORTED_MODULE_2__[\"default\"];\n  const tabElements = document.getElementsByClassName('tab');\n  for (let i = 0; i < tabElements.length; i++) {\n    const el = tabElements[i];\n    el.classList.remove('active-tab');\n    if (el.id === tabId) {\n      el.classList.add('active-tab');\n    }\n  }\n  const tabContentEl = document.getElementById('tabContent');\n  while (tabContentEl.firstChild) {\n    tabContentEl.removeChild(tabContentEl.firstChild);\n  }\n  renderFn(tabContentEl);\n}\nfunction addTab(parent, id, title, renderFn) {\n  const tab = (0,_helper__WEBPACK_IMPORTED_MODULE_1__.addNewDiv)(parent, 'tab');\n  tab.id = id;\n  tab.textContent = title;\n  tab.addEventListener('click', () => switchTab(id, renderFn));\n}\nconst contentDiv = document.getElementById('content');\nconst titleBox = (0,_helper__WEBPACK_IMPORTED_MODULE_1__.addNewDiv)(contentDiv, 'box');\nconst titleDiv = (0,_helper__WEBPACK_IMPORTED_MODULE_1__.addNewDiv)(titleBox, 'title');\ntitleDiv.textContent = 'Awesome Restaurant';\nconst mainBox = (0,_helper__WEBPACK_IMPORTED_MODULE_1__.addNewDiv)(contentDiv, 'box', 'main');\nconst tabs = (0,_helper__WEBPACK_IMPORTED_MODULE_1__.addNewDiv)(mainBox, 'tabs');\naddTab(tabs, 'homeTab', 'Home', _home__WEBPACK_IMPORTED_MODULE_2__[\"default\"]);\naddTab(tabs, 'menuTab', 'Menu', _menu__WEBPACK_IMPORTED_MODULE_3__[\"default\"]);\naddTab(tabs, 'contactTab', 'Contact', _contact__WEBPACK_IMPORTED_MODULE_4__[\"default\"]);\nconst tabContent = (0,_helper__WEBPACK_IMPORTED_MODULE_1__.addNewDiv)(mainBox, 'tab-content');\ntabContent.id = 'tabContent';\nconst attribution = (0,_helper__WEBPACK_IMPORTED_MODULE_1__.addNewDiv)(contentDiv, 'attribution');\nattribution.innerHTML = 'Photo by <a href=\"https://unsplash.com/@lvnatikk\">Lily Banse</a> on <a href=\"https://unsplash.com/photos/-YHSwy6uqvk\">Unsplash</a>';\nswitchTab();\n\n//# sourceURL=webpack://restaurant-page/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/menu.js":
+/*!*********************!*\
+  !*** ./src/menu.js ***!
+  \*********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ render)\n/* harmony export */ });\n/* harmony import */ var _helper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./helper */ \"./src/helper.js\");\n\nfunction render(parent) {\n  const textDiv = (0,_helper__WEBPACK_IMPORTED_MODULE_0__.addNewDiv)(parent, 'tab-text');\n  const p1 = (0,_helper__WEBPACK_IMPORTED_MODULE_0__.addNewElement)('p', textDiv);\n  p1.textContent = 'Indulge in our carefully curated menu, a harmonious blend of classic favorites and inventive creations. From hearty farmhouse soups to artisanal wood-fired pizzas, each dish tells a story of tradition and innovation.';\n  const p2 = (0,_helper__WEBPACK_IMPORTED_MODULE_0__.addNewElement)('p', textDiv);\n  p2.textContent = 'Not sure what to choose? Say: \"Surprise me!\"';\n}\n\n//# sourceURL=webpack://restaurant-page/./src/menu.js?");
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/styles.css":
 /*!**************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./src/styles.css ***!
@@ -117,56 +167,6 @@ eval("\n\n/* istanbul ignore next  */\nfunction apply(styleElement, options, obj
 /***/ ((module) => {
 
 eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElement) {\n  if (styleElement.styleSheet) {\n    styleElement.styleSheet.cssText = css;\n  } else {\n    while (styleElement.firstChild) {\n      styleElement.removeChild(styleElement.firstChild);\n    }\n    styleElement.appendChild(document.createTextNode(css));\n  }\n}\nmodule.exports = styleTagTransform;\n\n//# sourceURL=webpack://restaurant-page/./node_modules/style-loader/dist/runtime/styleTagTransform.js?");
-
-/***/ }),
-
-/***/ "./src/contact.js":
-/*!************************!*\
-  !*** ./src/contact.js ***!
-  \************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ render)\n/* harmony export */ });\n/* harmony import */ var _helper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./helper */ \"./src/helper.js\");\n\n\nfunction render(parent) {\n    const textDiv = (0,_helper__WEBPACK_IMPORTED_MODULE_0__.addNewDiv)(parent, 'tab-text');\n    textDiv.textContent = 'Contact us at ThisTotallyNotFake@email.com';\n}\n\n\n//# sourceURL=webpack://restaurant-page/./src/contact.js?");
-
-/***/ }),
-
-/***/ "./src/helper.js":
-/*!***********************!*\
-  !*** ./src/helper.js ***!
-  \***********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   addNewDiv: () => (/* binding */ addNewDiv),\n/* harmony export */   addNewElement: () => (/* binding */ addNewElement)\n/* harmony export */ });\nfunction addNewElement(type, parent, ...cssClasses) {\n    const element = document.createElement(type);\n    if (cssClasses) {\n        element.classList.add(...cssClasses);\n    }\n    parent.appendChild(element);\n    return element;\n}\n\nfunction addNewDiv(parent, ...cssClasses) {\n    return addNewElement('div', parent, ...cssClasses);\n}\n\n\n//# sourceURL=webpack://restaurant-page/./src/helper.js?");
-
-/***/ }),
-
-/***/ "./src/home.js":
-/*!*********************!*\
-  !*** ./src/home.js ***!
-  \*********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ render)\n/* harmony export */ });\n/* harmony import */ var _helper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./helper */ \"./src/helper.js\");\n\n\nfunction render(parent) {\n    const textDiv = (0,_helper__WEBPACK_IMPORTED_MODULE_0__.addNewDiv)(parent, 'tab-text');\n    textDiv.textContent = 'Welcome to a culinary haven where the art of cooking and the warmth of hospitality merge seamlessly. Nestled in the heart of the city, our restaurant offers a captivating blend of flavors and ambiance that transport you to a world of delectable delights and timeless charm.';\n}\n\n\n//# sourceURL=webpack://restaurant-page/./src/home.js?");
-
-/***/ }),
-
-/***/ "./src/index.js":
-/*!**********************!*\
-  !*** ./src/index.js ***!
-  \**********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles.css */ \"./src/styles.css\");\n/* harmony import */ var _helper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helper */ \"./src/helper.js\");\n/* harmony import */ var _home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./home */ \"./src/home.js\");\n/* harmony import */ var _menu__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./menu */ \"./src/menu.js\");\n/* harmony import */ var _contact__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./contact */ \"./src/contact.js\");\n\n\n\n\n\n\nfunction switchTab(tabId = 'homeTab', renderFn = _home__WEBPACK_IMPORTED_MODULE_2__[\"default\"]) {\n    const tabElements = document.getElementsByClassName('tab');\n    for (let i = 0; i < tabElements.length; i++) {\n        const el = tabElements[i];\n        el.classList.remove('active-tab');\n        if (el.id === tabId) {\n            el.classList.add('active-tab');\n        }\n    }\n    const tabContentEl = document.getElementById('tabContent');\n    while (tabContentEl.firstChild) {\n        tabContentEl.removeChild(tabContentEl.firstChild);\n    }\n    renderFn(tabContentEl);\n}\n\nfunction addTab(parent, id, title, renderFn) {\n    const tab = (0,_helper__WEBPACK_IMPORTED_MODULE_1__.addNewDiv)(parent, 'tab');\n    tab.id = id;\n    tab.textContent = title;\n    tab.addEventListener('click', () => switchTab(id, renderFn));\n}\n\nconst contentDiv = document.getElementById('content');\n\nconst titleBox = (0,_helper__WEBPACK_IMPORTED_MODULE_1__.addNewDiv)(contentDiv, 'box');\nconst titleDiv = (0,_helper__WEBPACK_IMPORTED_MODULE_1__.addNewDiv)(titleBox, 'title');\ntitleDiv.textContent = 'Awesome Restaurant';\n\nconst mainBox = (0,_helper__WEBPACK_IMPORTED_MODULE_1__.addNewDiv)(contentDiv, 'box', 'main');\n\nconst tabs = (0,_helper__WEBPACK_IMPORTED_MODULE_1__.addNewDiv)(mainBox, 'tabs');\naddTab(tabs, 'homeTab', 'Home', _home__WEBPACK_IMPORTED_MODULE_2__[\"default\"]);\naddTab(tabs, 'menuTab', 'Menu', _menu__WEBPACK_IMPORTED_MODULE_3__[\"default\"]);\naddTab(tabs, 'contactTab', 'Contact', _contact__WEBPACK_IMPORTED_MODULE_4__[\"default\"]);\n\nconst tabContent = (0,_helper__WEBPACK_IMPORTED_MODULE_1__.addNewDiv)(mainBox, 'tab-content');\ntabContent.id = 'tabContent';\n\nconst attribution = (0,_helper__WEBPACK_IMPORTED_MODULE_1__.addNewDiv)(contentDiv, 'attribution');\nattribution.innerHTML = 'Photo by <a href=\"https://unsplash.com/@lvnatikk\">Lily Banse</a> on <a href=\"https://unsplash.com/photos/-YHSwy6uqvk\">Unsplash</a>';\n\nswitchTab();\n\n\n//# sourceURL=webpack://restaurant-page/./src/index.js?");
-
-/***/ }),
-
-/***/ "./src/menu.js":
-/*!*********************!*\
-  !*** ./src/menu.js ***!
-  \*********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ render)\n/* harmony export */ });\n/* harmony import */ var _helper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./helper */ \"./src/helper.js\");\n\n\nfunction render(parent) {\n    const textDiv = (0,_helper__WEBPACK_IMPORTED_MODULE_0__.addNewDiv)(parent, 'tab-text');\n\n    const p1 = (0,_helper__WEBPACK_IMPORTED_MODULE_0__.addNewElement)('p', textDiv);\n    p1.textContent = 'Indulge in our carefully curated menu, a harmonious blend of classic favorites and inventive creations. From hearty farmhouse soups to artisanal wood-fired pizzas, each dish tells a story of tradition and innovation.';\n\n    const p2 = (0,_helper__WEBPACK_IMPORTED_MODULE_0__.addNewElement)('p', textDiv);\n    p2.textContent = 'Not sure what to choose? Say: \"Surprise me!\"';\n}\n\n\n//# sourceURL=webpack://restaurant-page/./src/menu.js?");
 
 /***/ }),
 
